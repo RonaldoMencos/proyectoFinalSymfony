@@ -1,0 +1,102 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+inicio:
+    path: /
+    controller: App\Controller\SemestreController::getInicio
+getSemestres:
+    path: /semestres
+    controller: App\Controller\SemestreController::getSemestres
+createSemestre:
+    path: /semestre/create
+    controller: App\Controller\SemestreController::createSemestre
+updateSemestre:
+    path: /semestre/update/{id}
+    controller: App\Controller\SemestreController::updateSemestre
+deleteSemestre:
+    path: /semestre/delete/{id}
+    controller: App\Controller\SemestreController::deleteSemestre
+
+getCarreras:
+    path: /carreras
+    controller: App\Controller\CarreraController::getCarreras
+createCarrera:
+    path: /carrera/create
+    controller: App\Controller\CarreraController::createCarrera
+updateCarrera:
+    path: /carrera/update/{id}
+    controller: App\Controller\CarreraController::updateCarrera
+deleteCarrera:
+    path: /carrera/delete/{id}
+    controller: App\Controller\CarreraController::deleteCarrera
+
+getCursos:
+    path: /cursos
+    controller: App\Controller\CursoController::getCursos
+createCurso:
+    path: /curso/create
+    controller: App\Controller\CursoController::createCurso
+updateCurso:
+    path: /curso/update/{id}
+    controller: App\Controller\CursoController::updateCurso
+deleteCurso:
+    path: /curso/delete/{id}
+    controller: App\Controller\CursoController::deleteCurso
+
+getSecciones:
+    path: /secciones
+    controller: App\Controller\SeccionController::getSecciones
+createSeccion:
+    path: /seccion/create
+    controller: App\Controller\SeccionController::createSeccion
+updateSeccion:
+    path: /seccion/update/{id}
+    controller: App\Controller\SeccionController::updateSeccion
+deleteSeccion:
+    path: /seccion/delete/{id}
+    controller: App\Controller\SeccionController::deleteSeccion
+
+getAlumnos:
+    path: /alumnos
+    controller: App\Controller\AlumnoController::getAlumnos
+createAlumno:
+    path: /alumno/create
+    controller: App\Controller\AlumnoController::createAlumno
+updateAlumno:
+    path: /alumno/update/{id}
+    controller: App\Controller\AlumnoController::updateAlumno
+deleteAlumno:
+    path: /alumno/delete/{id}
+    controller: App\Controller\AlumnoController::deleteAlumno
+
+getNotas:
+    path: /notas
+    controller: App\Controller\AlumnoNotaController::getNotas
+createNota:
+    path: /nota/create
+    controller: App\Controller\AlumnoNotaController::createNota
+updateNota:
+    path: /nota/update/{id}
+    controller: App\Controller\AlumnoNotaController::updateNota
+deleteNota:
+    path: /nota/delete/{id}
+    controller: App\Controller\AlumnoNotaController::deleteNota
+
+getAllAlumnos:
+    path: /reports/alumnos
+    controller: App\Controller\ReportesController::getAllAlumnos
+getAllNotas:
+    path: /reports/notas
+    controller: App\Controller\ReportesController::getAllNotas
+getAlumnoByFilters:
+    path: /reports/alumno
+    controller: App\Controller\ReportesController::getAlumnoByFilters
+
+reportExcelAlumnos:
+    path: /report-alumnos
+    controller: App\Controller\ReportesController::getExcelAlumnos
+reportExcelNotas:
+    path: /report-notas
+    controller: App\Controller\ReportesController::getExcelNotas

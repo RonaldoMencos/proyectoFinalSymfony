@@ -1,0 +1,22 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+    <title>Nueva sección</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Nueva Sección</h1>
+    {{form_start(formSeccion)}}
+        
+        <div class="row mb-2">
+            <div class="col">
+                {{form_row(formSeccion.nombre)}} 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_widget(formSeccion.submit)}} 
+            </div>
+        </div>
+    {{form_end(formSeccion)}}        
+{% endblock %}

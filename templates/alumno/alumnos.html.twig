@@ -1,0 +1,42 @@
+{% extends('base.html.twig') %} {% block title %}
+<title>Listado de alumnos</title>
+{% endblock %} 
+{% block body %}
+<h1 class="text-center">Catálogo de Alumnos</h1>
+<a href="{{ path('createAlumno') }}" class="btn btn-secondary">Nuevo</a>
+<table class="table table-striped table-hover">
+  <thead>
+    <th>#</th>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Fecha Nacimiento</th>
+    <th>Carrera</th>
+    <th>Fotografía</th>
+    <th>Acciones</th>
+  </thead>
+  <tbody>
+    {% for alumno in listAlumnos %}
+    <tr>
+      <td>{{ alumno.id }}</td>
+      <td>{{ alumno.nombres }}</td>
+      <td>{{ alumno.apellidos }}</td>
+      <td>{{ alumno.fechaNacimiento | date('d-m-Y') }}</td>
+      <td>{{ alumno.carrera.nombre }}</td>
+      <td> <img width="50" height="50" src="{{ asset('./uploads/fotos/' ~ alumno.foto) }}"/></td>
+      <td>
+        <a
+          href="{{ path('updateAlumno', { id: alumno.id }) }}"
+          class="btn btn-primary"
+          >Editar</a
+        >
+        <a
+          href="{{ path('deleteAlumno', { id: alumno.id }) }}"
+          class="btn btn-danger"
+          >Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

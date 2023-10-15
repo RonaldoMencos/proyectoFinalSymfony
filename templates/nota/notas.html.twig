@@ -1,0 +1,43 @@
+{% extends('base.html.twig') %} {% block title %}
+<title>Listado de notas</title>
+{% endblock %} {% block body %}
+<h1 class="text-center">Notas</h1>
+<a href="{{ path('createNota') }}" class="btn btn-secondary">Nueva</a>
+<table class="table table-striped table-hover">
+  <thead>
+    <th>#</th>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Semestre</th>
+    <th>Seccion</th>
+    <th>Curso</th>
+    <th>Nota</th>
+    <th>Acciones</th>
+  </thead>
+  <tbody>
+    {% for nota in listNotas %}
+    <tr>
+      <td>{{ nota.id }}</td>
+      <td>{{ nota.alumno.nombres }}</td>
+      <td>{{ nota.alumno.apellidos }}</td>
+      <td>{{ nota.semestre.nombre }}</td>
+      <td>{{ nota.seccion.nombre }}</td>
+      <td>{{ nota.curso.nombre }}</td>
+      <td>{{ nota.nota }}</td>
+      <td>
+        <a
+          href="{{ path('updateNota', { id: nota.id }) }}"
+          class="btn btn-primary"
+          >Editar</a
+        >
+        <a
+          href="{{ path('deleteNota', { id: nota.id }) }}"
+          class="btn btn-danger"
+          >Eliminar</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+    <title>Nuevo curso</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Nuevo Curso</h1>
+    {{form_start(formCurso)}}
+        
+        <div class="row mb-2">
+            <div class="col">
+                {{form_row(formCurso.nombre)}} 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_widget(formCurso.submit)}} 
+            </div>
+        </div>
+    {{form_end(formCurso)}}        
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+    <title>Listado de secciones</title>
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Catálogo de Secciones</h1>
+    <a href="{{path('createSeccion')}}" class="btn btn-secondary">Nueva</a>
+    <table class="table table-striped table-hover">
+        <thead>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            {% for seccion in listSecciones %}
+                <tr>
+                    <td>{{seccion.id}}</td>
+                    <td>{{seccion.nombre}}</td>
+                    <td>
+                        <a href="{{path('updateSeccion',{'id': seccion.id})}}" class="btn btn-primary">Editar</a>
+                        <a href="{{path('deleteSeccion',{'id': seccion.id})}}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

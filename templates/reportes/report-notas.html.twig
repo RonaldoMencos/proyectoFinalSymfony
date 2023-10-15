@@ -1,0 +1,55 @@
+{% extends('base.html.twig') %} {% block title %}
+<title>Reporte de notas</title>
+{% endblock %} {% block body %}
+<h1 class="text-center">Reporte de Notas</h1>
+{{ form_start(formNotas) }}
+<div class="row mb-2">
+  <div class="col-12 col-md-6">
+    {{ form_row(formNotas.semestre) }}
+  </div>
+  <div class="col-12 col-md-6">
+    {{ form_row(formNotas.curso) }}
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="col-12 col-md-6">
+    {{ form_row(formNotas.seccion) }}
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="col-12 col-md-1">
+    {{ form_row(formNotas.submit) }}
+  </div>
+  <div class="col-12 col-md-2">
+    <a class="btn btn-success" href="{{ path('reportExcelNotas') }}"
+      >Exportar Excel</a
+    >
+  </div>
+</div>
+{{ form_end(formNotas) }}
+<table class="table table-striped table-hover">
+  <thead>
+    <th>#</th>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Semestre</th>
+    <th>Curso</th>
+    <th>Sección</th>
+    <th>Nota</th>
+  </thead>
+  <tbody>
+    {% for nota in listNotas %}
+    <tr>
+      <td>{{ nota.id }}</td>
+      <td>{{ nota.alumno.nombres }}</td>
+      <td>{{ nota.alumno.apellidos }}</td>
+      <td>{{ nota.semestre.nombre }}</td>
+      <td>{{ nota.curso.nombre }}</td>
+      <td>{{ nota.seccion.nombre }}</td>
+      <td>{{ nota.nota }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

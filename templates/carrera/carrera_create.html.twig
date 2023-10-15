@@ -1,0 +1,32 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+    <title>Nueva Carrera</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Nueva Carrera</h1>
+    {{form_start(formCarrera)}}
+        
+        <div class="row mb-2">
+            <div class="col">
+                {{form_row(formCarrera.nombre)}} 
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col">
+                {{form_row(formCarrera.jornada)}} 
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col">
+                {{form_row(formCarrera.ubicacion)}} 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{form_widget(formCarrera.submit)}} 
+            </div>
+        </div>
+    {{form_end(formCarrera)}}        
+{% endblock %}

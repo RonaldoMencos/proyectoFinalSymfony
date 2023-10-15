@@ -1,0 +1,33 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+    <title>Listado de carreras</title>
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Catálogo de Carreras</h1>
+    <a href="{{path('createCarrera')}}" class="btn btn-secondary">Nueva</a>
+    <table class="table table-striped table-hover">
+        <thead>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Jornada</th>
+            <th>Ubicacion</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            {% for carrera in listCarreras %}
+                <tr>
+                    <td>{{carrera.id}}</td>
+                    <td>{{carrera.nombre}}</td>
+                    <td>{{carrera.jornada}}</td>
+                    <td>{{carrera.ubicacion}}</td>
+                    <td>
+                        <a href="{{path('updateCarrera',{'id': carrera.id})}}" class="btn btn-primary">Editar</a>
+                        <a href="{{path('deleteCarrera',{'id': carrera.id})}}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

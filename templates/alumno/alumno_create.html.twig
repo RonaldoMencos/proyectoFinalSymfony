@@ -1,0 +1,38 @@
+{% extends('base.html.twig') %} {% block title %}
+<title>Nuevo Alumno</title>
+{% endblock %} {% block body %}
+<h1>Nuevo Alumno</h1>
+{{ form_start(formAlumno) }}
+
+<div class="row mb-2">
+  <div class="col">
+    {{ form_row(formAlumno.nombres) }}
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="col">
+    {{ form_row(formAlumno.apellidos) }}
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="col">
+    {{ form_row(formAlumno.fechaNacimiento) }}
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="col">
+    {{ form_row(formAlumno.foto) }}
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="col">
+    {{ form_row(formAlumno.carrera) }}
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    {{ form_widget(formAlumno.submit) }}
+  </div>
+</div>
+{{ form_end(formAlumno) }}
+{% endblock %}

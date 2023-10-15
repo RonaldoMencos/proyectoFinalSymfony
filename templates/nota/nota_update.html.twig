@@ -1,0 +1,38 @@
+{% extends('base.html.twig') %} {% block title %}
+<title>Actualizar Nota</title>
+{% endblock %} {% block body %}
+<h1>Editar</h1>
+{{ form_start(formAlumnoNota) }}
+
+<div class="row mb-2">
+  <div class="col">
+    {{ form_row(formAlumnoNota.alumno) }}
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="col">
+    {{ form_row(formAlumnoNota.semestre) }}
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="col">
+    {{ form_row(formAlumnoNota.seccion) }}
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="col">
+    {{ form_row(formAlumnoNota.curso) }}
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="col">
+    {{ form_row(formAlumnoNota.nota) }}
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    {{ form_widget(formAlumnoNota.submit) }}
+  </div>
+</div>
+{{ form_end(formAlumnoNota) }}
+{% endblock %}

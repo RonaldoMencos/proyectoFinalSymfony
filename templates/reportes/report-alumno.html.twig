@@ -1,0 +1,59 @@
+{% extends('base.html.twig') %} {% block title %}
+<title>Informacion de alumno</title>
+{% endblock %} {% block body %}
+<h1 class="text-center">Información de Alumno</h1>
+{{ form_start(formAlumno) }}
+<div class="row mb-2">
+  <div class="col-10">
+    {{ form_row(formAlumno.alumno) }}
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="col">
+    {{ form_row(formAlumno.submit) }}
+  </div>
+</div>
+{{ form_end(formAlumno) }}
+
+{% if alumno != null %}
+<div class="row d-flex justify-content-center mb-5">
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card" style="width: 100%">
+      <img
+        src="{{ asset('./uploads/fotos/' ~ alumno.foto) }}"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{alumno.nombres ~ ' ' ~ alumno.apellidos}}</h5>
+        <p class="card-text">
+          <span "fw-bold">Carrera: </span> {{alumno.carrera.nombre}}
+        </p>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="row">
+  <h2>Notas</h2>
+  <table class="table table-striped table-hover">
+    <thead>
+      <th>#</th>
+      <th>Semestre</th>
+      <th>Curso</th>
+      <th>Sección</th>
+      <th>Nota</th>
+    </thead>
+    <tbody>
+      {% for nota in listNotas %}
+      <tr>
+        <td>{{ nota.id }}</td>
+        <td>{{ nota.semestre.nombre}}</td>
+        <td>{{ nota.curso.nombre }}</td>
+        <td>{{ nota.seccion.nombre }}</td>
+        <td>{{ nota.nota }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %} {% endblock %}

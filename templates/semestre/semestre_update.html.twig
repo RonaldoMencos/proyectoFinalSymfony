@@ -1,0 +1,21 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+    <title>Actualizar Semestre</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Editar</h1>
+    {{form_start(formSemestre)}}
+    <div class="row mb-2">
+        <div class="col">
+            {{form_row(formSemestre.nombre)}} 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{form_widget(formSemestre.submit)}} 
+        </div>
+    </div>
+    {{form_end(formSemestre)}}
+{% endblock %}
