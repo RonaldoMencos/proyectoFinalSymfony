@@ -1,0 +1,49 @@
+#INSTRUCCIONES PARA EJECUTAR EL PROYECTO
+1. instalar composer desde: https://getcomposer.org/download/
+2. clonar proyecto desde git
+3. abrir proyecto con visual code y abrir una terminal
+4. escribir en la terminal el comando: composer install
+5. importar sql en base de datos (se encuentra en la carpeta del proyecto)
+6. copiar proyecto en xampp/htdocs
+7. inciar xampp
+8. ir a la ruta http://localhost/proyectoFinalSymfony/public/index.php
+
+--COMANDOS
+#CREAR PROYECTO
+composer create-project symfony/skeleton proyectoFinal
+
+#INICIAR PROYECTO
+composer require make
+
+#INSTALR ANOTACIONES
+composer require doctrine/annotations
+
+#GENERAR CONTROLLER
+php bin/console make:controller Semestre
+
+#INSTALAR ORM
+composer require symfony/orm-pack --update-with-all-dependencies
+
+#MAPEAR ENTIDADES
+php bin/console doctrine:mapping:import "App\Entity" annotation --path=src/Entity
+
+#CREAR METODOS GETTER Y SETTER EN ENTIDADES
+generates getter/setter methods for all Entities
+
+#REGENERAR ENTIDADES
+php bin/console make:entity --regenerate App
+
+#INSTALAR TEMPLATE
+composer require template
+
+#INSTALAR ASSET
+composer require symfony/asset
+
+#INSTALAR BOOTSTRAP
+composer require twbs/bootstrap
+
+#INSTALAR FORM VALIDATOR
+composer require form validator
+
+#CREAR FORMULARIO
+php bin/console make:form Semestre
